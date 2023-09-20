@@ -2,9 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 env:
   NODE_VERSION: 18.x
@@ -62,7 +60,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2.7.0
         id: semantic
         with:
-          branch: main
+          branch: master
           semantic_version: 18.0.0
           extra_plugins: |
             @semantic-release/git
