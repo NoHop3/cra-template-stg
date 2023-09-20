@@ -13,7 +13,9 @@ export const StyledDialog = styled.div`
   max-height: calc(100vh - 100px);
   background: ${({ theme }) => theme.palette.background.default};
   border-radius: 4px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15), 0 30px 20px -20px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.15),
+    0 30px 20px -20px rgba(0, 0, 0, 0.2);
   will-change: opacity, transform, transition;
 
   ${mediaUpTo('desktop')} {

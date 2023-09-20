@@ -145,9 +145,10 @@
     "tsc": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "husky install",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "postinstall": "husky install && yarn husky-init",
+    "husky-init": "npx husky add .husky/pre-commit \"prettier --write \"src/*.ts\" \"src/**/*.ts*\" && npx husky add .husky/pre-push \"tsc && yarn run lint\" && npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
+    "prepack": "husky uninstall",
+    "postpack": "husky install && yarn husky-init"
   },
   "eslintConfig": {
     "extends": [

@@ -115,12 +115,6 @@
       "connected-react-router/**/redux": "^3.6.0 || ^4.0.0",
       "connected-react-router/**/react-redux": "^6.0.0 || ^7.1.0"
     },
-    "husky": {
-      "hooks": {
-        "pre-commit": "prettier --write \"src/*.ts\" \"src/**/*.ts*\"",
-        "pre-push": "tsc && yarn run lint"
-      }
-    },
     "config": {
       "commitizen": {
         "path": "node_modules/cz-conventional-changelog"
