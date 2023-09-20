@@ -1,7 +1,7 @@
 {
   "name": "cra-template-stg",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Stefan Georgiev <steffan.g23@gmail.com>",
   "engines": {
@@ -122,6 +122,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
     "husky": "^8.0.3",
+    "is-ci": "^3.0.1",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "jest-esm-transformer": "^1.0.0",
@@ -145,10 +146,10 @@
     "tsc": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "husky install && yarn husky-init",
-    "husky-init": "npx husky add .husky/pre-commit \"prettier --write \"src/*.ts\" \"src/**/*.ts*\" && npx husky add .husky/pre-push \"tsc && yarn run lint\" && npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
+    "postinstall": "is-ci || husky install && yarn husky-init",
+    "husky-init": "is-ci || npx husky add .husky/pre-commit \"prettier --write \"src/*.ts\" \"src/**/*.ts*\"\" && npx husky add .husky/pre-push \"tsc && yarn run lint\" && npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
     "prepack": "husky uninstall",
-    "postpack": "husky install && yarn husky-init"
+    "postpack": "is-ci || husky install && yarn husky-init"
   },
   "eslintConfig": {
     "extends": [
