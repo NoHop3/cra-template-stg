@@ -54,7 +54,6 @@
     "@mui/system": "5.11.9",
     "@mui/types": "7.2.3",
     "@reduxjs/toolkit": "^1.9.3",
-    "@testing-library/jest-dom": "5.16.5",
     "@testing-library/user-event": "14.4.3",
     "@types/babel__core": "^7.20.0",
     "@types/estree": "^1.0.0",
@@ -171,7 +170,7 @@
       "@svgr/webpack": "6.5.1"
     },
     "connected-react-router": {
-      "history": "4.7.2"
+      "history": "^4.7.2"
     }
   },
   "husky": {
