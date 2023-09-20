@@ -10,11 +10,11 @@
     "standard-with-typescript",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/eslint-recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": ["off"],
     "react/jsx-uses-react": ["off"],
@@ -30,6 +30,7 @@
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
       "parserOptions": {
+        "ecmaVersion": 12,
         "project": true
       },
       "rules": {
@@ -44,11 +45,5 @@
         "@typescript-eslint/no-unnecessary-type-assertion": ["off"]
       }
     }
-  ],
-  "parserOptions": {
-    "ecmaFeatures": { "jsx": true },
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": true
-  }
+  ]
 }

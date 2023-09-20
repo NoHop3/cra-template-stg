@@ -1,5 +1,6 @@
 {
   "name": "cra-template-stg",
+  "type": "module",
   "version": "1.0.2",
   "license": "MIT",
   "author": "Stefan Georgiev <steffan.g23@gmail.com>",
