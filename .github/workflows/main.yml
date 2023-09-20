@@ -65,8 +65,8 @@ jobs:
           branch: main
           semantic_version: 18.0.0
           extra_plugins: |
-            @semantic-release/git
             @semantic-release/changelog
+            @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

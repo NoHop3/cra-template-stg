@@ -1,7 +1,7 @@
 {
   "name": "cra-template-stg",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Stefan Georgiev <steffan.g23@gmail.com>",
   "engines": {
@@ -170,11 +170,12 @@
       "@svgr/webpack": "6.5.1"
     },
     "connected-react-router": {
-      "history": "^4.7.2"
+      "history": "4.7.2"
     }
   },
   "husky": {
     "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true",
       "pre-commit": "prettier --write \"src/*.ts\" \"src/**/*.ts*\"",
       "pre-push": "tsc && npm run lint"
     }
