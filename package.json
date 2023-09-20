@@ -54,7 +54,6 @@
     "@mui/system": "5.11.9",
     "@mui/types": "7.2.3",
     "@reduxjs/toolkit": "^1.9.3",
-    "@testing-library/user-event": "14.4.3",
     "@types/babel__core": "^7.20.0",
     "@types/estree": "^1.0.0",
     "@types/node": "18.15.11",
@@ -126,6 +125,7 @@
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.2",
     "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/user-event": "14.4.3",
     "semantic-release": "18.0.1",
     "commitizen": "4.2.4"
   },
