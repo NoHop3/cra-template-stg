@@ -1,0 +1,11 @@
+node_modules
+babel.config.js
+reportWebVitals.ts
+react-app-env.d.ts
+jest.config.ts
+.prettierrc
+.env.development
+.env.production
+tsconfig.json
+tsconfig.eslint.json
+.eslintrc.json
