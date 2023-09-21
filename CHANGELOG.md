@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/NoHop3/cra-template-stg/compare/v2.0.0...v2.0.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* **package.json, template.json:** no longer running npx husky-init. No need o do that ([8cb17b7](https://github.com/NoHop3/cra-template-stg/commit/8cb17b73bc78de0b32487ff031ec076c680d3df1))
+
 # [2.0.0](https://github.com/NoHop3/cra-template-stg/compare/v1.0.3...v2.0.0) (2023-09-21)
 
 

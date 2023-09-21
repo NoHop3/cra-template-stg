@@ -1,7 +1,7 @@
 {
   "name": "cra-template-stg",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "author": "Stefan Georgiev <steffan.g23@gmail.com>",
   "engines": {
