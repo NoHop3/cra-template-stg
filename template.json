@@ -69,7 +69,7 @@
       "@typescript-eslint/eslint-plugin": "^5.55.0",
       "@typescript-eslint/parser": "^5.55.0",
       "babel-jest": "^29.5.0",
-      "commitizen": "4.2.4",
+      "commitizen": "^4.3.0",
       "css-select": "5.1.0",
       "eslint": "^8.36.0",
       "eslint-config-prettier": "^8.7.0",
@@ -102,10 +102,10 @@
       "tsc": "tsc",
       "storybook": "storybook dev -p 6006",
       "build-storybook": "storybook build",
-      "postinstall": "is-ci || husky install && yarn husky-init",
-      "husky-init": "is-ci || npx husky add .husky/pre-commit \"npx prettier --write \"\"src/*.ts\" \"src/**/*.ts*\"\" && npx husky add .husky/pre-push \"npx tsc && yarn run lint\" && npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
-      "prepack": "husky uninstall",
-      "postpack": "is-ci || husky install && yarn husky-init"
+      "postinstall": "npx is-ci || (npx husky install && npx husky-init && yarn husky-init)",
+      "husky-init": "npx husky add .husky/pre-commit \"npx prettier --write \"\"src/*.ts\"\" \"\"src/**/*.ts*\"\"\" & npx husky add .husky/pre-push \"npx tsc && yarn run lint\" & npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
+      "prepack": "npx husky uninstall",
+      "postpack": "npx is-ci || npx husky install"
     },
     "resolutions": {
       "strip-ansi": "^6.0.1",
