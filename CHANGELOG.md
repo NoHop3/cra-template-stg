@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/NoHop3/cra-template-stg/compare/v1.0.3...v2.0.0) (2023-09-21)
+
+
+### Bug Fixes
+
+* **package.json & template.json:** fixing husky command not found. Now adding .husky hooks properly ([57d1153](https://github.com/NoHop3/cra-template-stg/commit/57d11538b011d19b96bd2e6386395cfafca99fb6))
+* **package.json && template.json:** fixing a bug that was making instalaion of cra-template-stg fail ([3994508](https://github.com/NoHop3/cra-template-stg/commit/3994508dc993920fcbc95f45ea228656395a461d))
+
+
+### BREAKING CHANGES
+
+* **package.json & template.json:** Changes to package.json & template.json directly indicate breaking changes to the
+template
+
 ## [1.0.3](https://github.com/NoHop3/cra-template-stg/compare/v1.0.2...v1.0.3) (2023-09-20)
 
 
