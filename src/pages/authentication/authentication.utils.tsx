@@ -5,7 +5,7 @@ export const Copyright = (props: any) => {
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://github.com/Automating-Hydroponics-BPR2/via-sem7-bpr2-client">
-        Your copyrights go here 
+        Your copyrights go here
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}

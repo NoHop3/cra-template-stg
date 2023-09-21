@@ -146,10 +146,7 @@
     "tsc": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "npx is-ci || (npx husky install && yarn husky-init)",
-    "husky-init": "npx husky add .husky/pre-commit \"npx prettier --write \"\"src/*.ts\"\" \"\"src/**/*.ts*\"\"\" & npx husky add .husky/pre-push \"npx tsc && yarn run lint\" & npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\"",
-    "prepack": "npx husky uninstall",
-    "postpack": "npx is-ci || npx husky install"
+    "husky-init": "npx husky install && npx husky add .husky/pre-commit \"npx prettier --write \"\"src/*.ts\"\" \"\"src/**/*.ts*\"\"\" & npx husky add .husky/pre-push \"npx tsc && yarn run lint\" & npx husky add .husky/prepare-commit-msg \"exec < /dev/tty && npx cz --hook || true\""
   },
   "eslintConfig": {
     "extends": [
