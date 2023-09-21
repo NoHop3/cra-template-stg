@@ -1,3 +1,22 @@
+# [3.0.0](https://github.com/NoHop3/cra-template-stg/compare/v2.0.1...v3.0.0) (2023-09-21)
+
+
+### Bug Fixes
+
+* **package.json & template.json:** no longer postintall, prepack & postpack husky ([2cb2fc3](https://github.com/NoHop3/cra-template-stg/commit/2cb2fc333bb277b4777e5413c466383d290c83ad))
+
+
+### Performance Improvements
+
+* **package.json & template.json:** removing is-ci package. No longer needed ([a0cb401](https://github.com/NoHop3/cra-template-stg/commit/a0cb40134d8bc96a3c614d35a77ac1092d030ef2))
+
+
+### BREAKING CHANGES
+
+* **package.json & template.json:** Changes to package.json & template.json - removing postintall, prepack & postpack
+from scripts. Husky will no longer initialize itself after yarn install or npm install commands or
+during CI pipelines.
+
 ## [2.0.1](https://github.com/NoHop3/cra-template-stg/compare/v2.0.0...v2.0.1) (2023-09-21)
 
 
