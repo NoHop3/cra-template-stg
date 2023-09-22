@@ -34,4 +34,4 @@ This will configure husky & commitizen to automatically prettify and lint your f
 
 ## Great job! 
 
-You just used the template to boost your React development app. If you liked this template consider giving it a star ⭐
+If you liked this template consider giving it a star ⭐
