@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/NoHop3/cra-template-stg/compare/v3.0.0...v4.0.0) (2023-09-22)
+
+
+### Bug Fixes
+
+* **storybook & double react instances whil using wrong references scope in package.json:** fix/updt ([d0152bf](https://github.com/NoHop3/cra-template-stg/commit/d0152bf673b09fa0475f73e070b2f2fcfd25736f))
+
+
+### BREAKING CHANGES
+
+* **storybook & double react instances whil using wrong references scope in package.json:** A couple of big changes in package.json & template.json
+
 # [3.0.0](https://github.com/NoHop3/cra-template-stg/compare/v2.0.1...v3.0.0) (2023-09-21)
 
 
