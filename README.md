@@ -1,5 +1,9 @@
 # create-react-app --template stg
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/NoHop3/cra-template-stg/main.yml)](https://github.com/NoHop3/cra-template-stg/actions/workflows/main.yml)[![npm](https://img.shields.io/npm/v/cra-template-stg)](https://www.npmjs.com/package/cra-template-stg)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+[![github](https://img.shields.io/github/v/release/NoHop3/cra-template-stg)](https://github.com/NoHop3/cra-template-stg/releases)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/NoHop3/cra-template-stg/main.yml)](https://github.com/NoHop3/cra-template-stg/actions/workflows/main.yml)
+[![npm](https://img.shields.io/npm/v/cra-template-stg)](https://www.npmjs.com/package/cra-template-stg)
 
 
 
