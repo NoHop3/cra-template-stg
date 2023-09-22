@@ -128,7 +128,7 @@
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1",
     "semantic-release": "18.0.1",
-    "storybook": "^7.0.12",
+    "storybook": "7.4.2",
     "svgo": "3.0.2",
     "typescript": "^5.0.2",
     "husky": "^8.0.0"
@@ -169,14 +169,7 @@
     "strip-ansi": "^6.0.1",
     "string-width": "^4.2.2",
     "wrap-ansi": "^7.0.0",
-    "react-scripts/**/@svgr/webpack": "^6.5.1",
-    "react-scripts/**/@babel/plugin-transform-react-jsx": "^7.14.9",
-    "react-scripts/**/@babel/plugin-syntax-flow": "^7.14.5",
-    "connected-react-router/**/history": "^4.7.2",
-    "connected-react-router/**/react-router": "^4.3.1 || ^5.0.0",
-    "connected-react-router/**/react": "^16.8.6 || ^17.0.0",
-    "connected-react-router/**/redux": "^3.6.0 || ^4.0.0",
-    "connected-react-router/**/react-redux": "^6.0.0 || ^7.1.0"
+    "react-scripts/**/@svgr/webpack": "^6.5.1"
   },
   "config": {
     "commitizen": {

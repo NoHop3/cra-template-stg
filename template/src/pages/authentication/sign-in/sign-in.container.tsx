@@ -20,6 +20,8 @@ import { useNavigate } from 'react-router-dom';
 import { Copyright } from '../authentication.utils';
 
 export const _SignIn = (props: SignInProps) => {
+  const navigate = useNavigate();
+
   const [formState, setFormState] = React.useState({
     username: '',
     password: '',
@@ -44,12 +46,9 @@ export const _SignIn = (props: SignInProps) => {
     );
   };
 
-  const navigate = useNavigate();
-
   const redirectIfLoggedIn = React.useCallback(() => {
     if (props.isLoggedIn) {
-      alert('Signed in!');
-      navigate('*');
+      navigate('/');
     }
   }, [props.isLoggedIn, navigate]);
 
@@ -138,7 +137,7 @@ export const _SignIn = (props: SignInProps) => {
                 sx={{ cursor: 'pointer' }}
                 variant="body2"
                 onClick={() => {
-                  navigate('*');
+                  alert('Link clicked');
                 }}>
                 {'Forgot password?'}
               </Link>
@@ -148,7 +147,7 @@ export const _SignIn = (props: SignInProps) => {
                 sx={{ cursor: 'pointer' }}
                 variant="body2"
                 onClick={() => {
-                  navigate('*');
+                  navigate('/sign-up');
                 }}>
                 {"Don't have an account? Sign Up"}
               </Link>

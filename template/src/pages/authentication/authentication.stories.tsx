@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import type { StoryObj } from '@storybook/react';
 
@@ -7,29 +6,22 @@ import { _SignUp as SignUp } from './sign-up/sign-up.container';
 
 export default {
   title: 'Authentication',
-  component: React.Fragment,
-  args: {
-    isStorybook: !!process.env.STORYBOOK_ENV,
-  },
+  component: [SignIn, SignUp],
 };
-type Story = StoryObj<typeof React.Fragment>;
-
-const authProps = {
-  isLoggedIn: false,
-  signIn: () => {
-    console.log('sign in');
-  },
-  signUp: () => {
-    console.log('sign up');
-  },
-};
+type Story = StoryObj<typeof SignIn>;
 
 export const SignInStory: Story = () => {
+  const signInProps = {
+    isLoggedIn: false,
+    signIn: () => {
+      alert('Sign in');
+    },
+  };
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<SignIn {...authProps} />} />
+          <Route path="*" element={<SignIn {...signInProps} />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -39,11 +31,17 @@ export const SignInStory: Story = () => {
 SignInStory.storyName = 'Sign in';
 
 export const SignUpStory: Story = () => {
+  const signUpProps = {
+    isLoggedIn: false,
+    signUp: () => {
+      alert('Sign up');
+    },
+  };
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<SignUp {...authProps} />} />
+          <Route path="*" element={<SignUp {...signUpProps} />} />
         </Routes>
       </BrowserRouter>
     </div>

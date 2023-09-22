@@ -15,9 +15,5 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
-  env: (config) => ({
-    ...config,
-    STORYBOOK_ENV: 'An environment variable configured in Storybook',
-  }),
 };
 export default config;

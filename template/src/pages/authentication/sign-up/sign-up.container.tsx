@@ -21,6 +21,8 @@ import { useNavigate } from 'react-router-dom';
 import { Copyright } from '../authentication.utils';
 
 export const _SignUp = (props: SignUpProps) => {
+  const navigate = useNavigate();
+
   const [formState, setFormState] = React.useState({
     email: '',
     username: '',
@@ -59,17 +61,16 @@ export const _SignUp = (props: SignUpProps) => {
       : true;
   };
 
-  const navigate = useNavigate();
   const redirectIfLoggedIn = React.useCallback(() => {
     if (props.isLoggedIn) {
-      alert('Signed up successfully!');
-      navigate('*');
+      navigate('/');
     }
   }, [props.isLoggedIn, navigate]);
 
   React.useEffect(() => {
     redirectIfLoggedIn();
   }, [redirectIfLoggedIn]);
+
   const theme = useTheme();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -240,7 +241,7 @@ export const _SignUp = (props: SignUpProps) => {
                 sx={{ cursor: 'pointer' }}
                 variant="body2"
                 onClick={() => {
-                  navigate('*');
+                  navigate('/sign-in');
                 }}>
                 {'Already have an account? Sign in'}
               </Link>

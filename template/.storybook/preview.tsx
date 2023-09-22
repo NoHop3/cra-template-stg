@@ -1,22 +1,20 @@
-import React, { useMemo } from "react";
-import {
-  ThemeProvider as ScThemeProvider,
-} from "styled-components";
-import { ThemeProvider, StyledEngineProvider } from "@mui/material";
-import { lightTheme, darkTheme } from "../src/shared/utils/theme/themes";
+import React, { useMemo } from 'react';
+import { ThemeProvider as ScThemeProvider } from 'styled-components';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material';
+import { lightTheme, darkTheme } from '../src/shared/utils/theme/themes';
 
 export const globalTypes = {
   theme: {
-    name: "Theme",
-    title: "Theme",
-    description: "Theme for your components",
-    defaultValue: "light",
+    name: 'Theme',
+    title: 'Theme',
+    description: 'Theme for your components',
+    defaultValue: 'light',
     toolbar: {
-      icon: "paintbrush",
+      icon: 'paintbrush',
       dynamicTitle: true,
       items: [
-        { value: "light", left: "☀️", title: "Light mode" },
-        { value: "dark", left: "🌙", title: "Dark mode" },
+        { value: 'light', left: '☀️', title: 'Light mode' },
+        { value: 'dark', left: '🌙', title: 'Dark mode' },
       ],
     },
   },
@@ -31,7 +29,7 @@ export const withProviders = (Story, context) => {
   const { theme: themeKey } = context.globals;
 
   // only recompute the theme if the themeKey changes
-  const theme = useMemo(() => THEMES[themeKey] || THEMES["light"], [themeKey]);
+  const theme = useMemo(() => THEMES[themeKey] || THEMES['light'], [themeKey]);
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
@@ -43,12 +41,10 @@ export const withProviders = (Story, context) => {
   );
 };
 
-export const decorators = [
-  withProviders,
-];
+export const decorators = [withProviders];
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     expanded: true, // Adds the description and default columns
     matchers: {
