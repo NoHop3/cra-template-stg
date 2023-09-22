@@ -26,12 +26,26 @@ yarn create react-app . --template stg
 Change `.` with your project name if desired.
 You might get a message `This will install create-react-app...` just press `Enter` to continue
 Wait for the packages to finish downloading.
-Type in the following:
+Type in the following if you chose a desired name:
 ```
 cd *your project name* && yarn run husky-init
+```
+If you went with a `.` for a project name then just proceed with:
+```
+yarn run husky-init
 ```
 This will configure husky & commitizen to automatically prettify and lint your files as well as commit by the conventional commit [standard](https://github.com/commitizen/cz-cli)
 
 ## Great job! 
+
+That's it! You are ready to start building on top of this template.
+You can view the initial setup with
+```
+yarn run start
+```
+Or you can go developing straightaway in VSCode
+```
+code .
+```
 
 If you liked this template consider giving it a star ⭐
