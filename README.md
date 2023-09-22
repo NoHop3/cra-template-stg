@@ -5,27 +5,46 @@
 
 A quick start Create React App template with React Router, Redux Toolkit, TypeScript, React Testing Library, styled-components, MUI, storybook and custom ESlint configurations. As well as Husky & Commitizen so you can keep deploying your code in the best way possible.
 
-## Changelog
+# Changelog
 See the [changelog](https://github.com/NoHop3/cra-template-stg/blob/main/CHANGELOG.md) to see latest changes.
 Raise an [issue](https://github.com/NoHop3/cra-template-stg/issues) if you see something that needs improvement or witness a bug with the template
 
-### How to install? Prerequisities
-```
-node & npm
-```
-If you do not currently have node.js & npm you can install them [here](https://nodejs.org/en/download).
+## How to install? Prerequisities
+
+You MUST have : `node & npm`
+
 After successfully installing node run the following command:
+
 ```
 npm install yarn -g
 ```
+
 This will install yarn globally.
-Next head over to the folder where you would like to use cra-template-stg. Press `Alt+D` type in `cmd` press `Enter` and after the terminal appears type in the following:
+
+Next head over to the folder where you would like to use cra-template-stg. 
+
+Press `Alt+D` type in `cmd` press `Enter` and after the terminal appears type in the following:
 ```
 yarn create react-app . --template stg
 ```
 Change `.` with your project name if desired.
+
 You might get a message `This will install create-react-app...` just press `Enter` to continue
-Wait for the packages to finish downloading.
+
+## Initial setup
+
+You can start the project after the scripts are done
+```
+yarn run start
+```
+Or directly start developing in VSCode
+```
+code .
+```
+
+## Husky & Commitizen initialization
+
+
 Type in the following if you chose a desired name:
 ```
 cd *your project name* && yarn run husky-init
@@ -34,18 +53,22 @@ If you went with a `.` for a project name then just proceed with:
 ```
 yarn run husky-init
 ```
-This will configure husky & commitizen to automatically prettify and lint your files as well as commit by the conventional commit [standard](https://github.com/commitizen/cz-cli)
+This will configure husky & commitizen to automatically prettify and lint your files as well as commit by the conventional commit [standard.](https://github.com/commitizen/cz-cli)
 
-## Great job! 
+## Best commit practices for me are:
+```
+$ git add .
+$ git commit
+```
+After `$ git commit` the terminal will call husky pre-commit hook which will lint all files. 
+Then husky will call the prepare-commit-msg which on its side will prompt the commitizen conventional commit interface.
+
+Lastly, of course, after selecting the type of commit and commit message we need to push our changes.
+```
+$ git push
+```
+# Great job! 
 
 That's it! You are ready to start building on top of this template.
-You can view the initial setup with
-```
-yarn run start
-```
-Or you can go developing straightaway in VSCode
-```
-code .
-```
 
 If you liked this template consider giving it a star ⭐
