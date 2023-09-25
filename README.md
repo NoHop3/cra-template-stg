@@ -71,6 +71,11 @@ Lastly, of course, after selecting the type of commit and commit message we need
 ```
 $ git push
 ```
+
+## Continous Integration
+The project comes with CI already configured with Semantic Release. It uses GitHub Actions to run yarn install, yarn lint & yarn release on every push to the main branch. That is also updating an automated CHANGELOG.md file when there are changes that trigger a release. A change that trigger a release is analyzed with the help of `@semantic-release/commit-analyzer` and `@semantic-release/release-notes-generator` plugins whereas the Changelog is updated with the help of `@semantic-release/changelog`.
+In order to use it you need to set up Github Actions. Go to the Actions tab and you will see the workflow running. However, make sure you add a GH_TOKEN environment variable in your repository settings. You can find more information on how to do that [here.](https://docs.github.com/en/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository). Another important thing is to have your Github Actions settings configured like [this](https://scontent.xx.fbcdn.net/v/t1.15752-9/381261306_325011419937992_1519860712525371449_n.png?_nc_cat=108&ccb=1-7&_nc_sid=aee45a&_nc_ohc=qgfMv5oaQVUAX-MTgUI&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdT_kc5fLikcdtkabKLC4vIw16YdGY7TbHcMjRPKRlC2Yw&oe=65341B49) and [this](https://scontent.xx.fbcdn.net/v/t1.15752-9/381282707_1037374181027013_7572008705668566205_n.png?_nc_cat=110&ccb=1-7&_nc_sid=aee45a&_nc_ohc=tUZRBwGtcDQAX8zsjHK&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRpDRhUI2wR42bRTduRgbLkhmZA3-rwhZK8YSgHTYZ56w&oe=65342748) in order to have the CI working properly.
+
 # Great job! 
 
 That's it! You are ready to start building on top of this template.
