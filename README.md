@@ -4,6 +4,8 @@
 [![github](https://img.shields.io/github/v/release/NoHop3/cra-template-stg)](https://github.com/NoHop3/cra-template-stg/releases)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/NoHop3/cra-template-stg/main.yml)](https://github.com/NoHop3/cra-template-stg/actions/workflows/main.yml)
 [![npm](https://img.shields.io/npm/v/cra-template-stg)](https://www.npmjs.com/package/cra-template-stg)
+![dwndt](https://img.shields.io/npm/dt/cra-template-stg)
+
 
 
 
