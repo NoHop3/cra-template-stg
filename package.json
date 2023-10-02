@@ -51,7 +51,7 @@
     "@mui/icons-material": "5.11.9",
     "@mui/material": "5.11.9",
     "@mui/styled-engine-sc": "5.11.9",
-    "@mui/system": "5.11.9",
+    "@mui/system": "5.14.11",
     "@mui/types": "7.2.3",
     "@reduxjs/toolkit": "1.9.3",
     "@types/babel__core": "7.20.2",
