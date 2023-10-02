@@ -5,8 +5,6 @@
     "jest": true
   },
   "extends": [
-    "react-app",
-    "react-app/jest",
     "standard-with-typescript",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/eslint-recommended",
