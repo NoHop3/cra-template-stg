@@ -1,3 +1,10 @@
+## [4.1.1](https://github.com/NoHop3/cra-template-stg/compare/v4.1.0...v4.1.1) (2023-10-02)
+
+
+### Bug Fixes
+
+* **package.json:** fixing dependencies causing a run-time error (es-lint) ([3a9fd92](https://github.com/NoHop3/cra-template-stg/commit/3a9fd92ee8825c7c93cae8969882237508fac097))
+
 # [4.0.0](https://github.com/NoHop3/cra-template-stg/compare/v3.0.0...v4.0.0) (2023-09-22)
 
 
