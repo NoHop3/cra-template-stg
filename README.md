@@ -58,6 +58,7 @@ If you went with a `.` for a project name then just proceed with:
 yarn run husky-init
 ```
 This will configure husky & commitizen to automatically prettify and lint your files as well as commit by the conventional commit [standard.](https://github.com/commitizen/cz-cli)
+IMPORTANT - never run this command more than twice as it would write the same hooks and your git commit commands would be calling the commitizen cli twice!
 
 ## Best commit practices for me are:
 ```
