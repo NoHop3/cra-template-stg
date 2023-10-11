@@ -1,3 +1,13 @@
+## [4.2.0](https://github.com/NoHop3/cra-template-stg/compare/v4.1.1...v4.2.0) (2023-10-11)
+
+### Refactors
+
+* **cra-template-stg** Finalized the whole refactor of the template ([7635faa](https://github.com/NoHop3/cra-template-stg/commit/7635faaa0816380ad7c72a6b1519b875eaf734c9))
+
+* **WHOLE TEMPLATE** Changing a lot of namings, structure & fixing bugs ([4117b96](https://github.com/NoHop3/cra-template-stg/commit/4117b96e820646eccccb5537a08ff884f7e51cb1))
+
+* **package.json & template.json** Updating packages. Removing redundant files ([64e98d9](https://github.com/NoHop3/cra-template-stg/commit/64e98d9360895ea2a5f3b5a5c860e526278ee333))
+
 ## [4.1.1](https://github.com/NoHop3/cra-template-stg/compare/v4.1.0...v4.1.1) (2023-10-02)
 
 
