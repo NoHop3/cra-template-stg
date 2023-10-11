@@ -1,6 +1,6 @@
 import { type AlertColor } from '@mui/material';
 
-export interface Snackbar {
+export interface TSnackbar {
   open: boolean;
   type: AlertColor;
   message: string;

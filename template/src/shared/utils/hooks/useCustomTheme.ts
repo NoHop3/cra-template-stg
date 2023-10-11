@@ -3,25 +3,25 @@ import { createTheme } from '@mui/material/styles';
 import { useAppSelector } from '../typescript/redux-types';
 
 export const useCustomTheme = () => {
-  const customTheme = useAppSelector((state) => state.theme);
+  const { theme } = useAppSelector((state) => state.theme);
 
-  const theme = React.useMemo(
+  const createdTheme = React.useMemo(
     () =>
       createTheme({
         palette: {
-          mode: customTheme.mode,
-          primary: customTheme.primary,
+          mode: theme.mode,
+          primary: theme.primary,
           secondary: {
             light: '#0066ff',
             main: '#0044ff',
             contrastText: '#ffcc00',
           },
           background: {
-            default: customTheme.background,
+            default: theme.background,
             paper: '#ffffff',
           },
-          text: customTheme.text,
-          divider: customTheme.divider ?? '#00000026',
+          text: theme.text,
+          divider: theme.divider ?? '#00000026',
         },
         components: {},
         breakpoints: {
@@ -42,9 +42,13 @@ export const useCustomTheme = () => {
           fontWeightMedium: 500,
           fontWeightBold: 700,
         },
+        zIndex: {
+          appBar: 1200,
+          drawer: 1100,
+        },
       }),
-    [customTheme],
+    [theme],
   );
 
-  return theme;
+  return createdTheme;
 };

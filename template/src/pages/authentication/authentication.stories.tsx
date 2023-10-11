@@ -1,51 +1,51 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import type { StoryObj } from '@storybook/react';
 
-import { _SignIn as SignIn } from './sign-in/sign-in.container';
-import { _SignUp as SignUp } from './sign-up/sign-up.container';
+import { Login } from './login/login';
+import { Register } from './register/register';
 
 export default {
   title: 'Authentication',
-  component: [SignIn, SignUp],
+  component: [Login, Register],
 };
-type Story = StoryObj<typeof SignIn>;
+type Story = StoryObj<typeof Login>;
 
-export const SignInStory: Story = () => {
-  const signInProps = {
-    isLoggedIn: false,
-    signIn: () => {
-      alert('Sign in');
+export const LoginStory: Story = () => {
+  const loginProps = {
+    isLoading: false,
+    login: () => {
+      alert('Login');
     },
   };
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<SignIn {...signInProps} />} />
+          <Route path="*" element={<Login {...loginProps} />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 };
 
-SignInStory.storyName = 'Sign in';
+LoginStory.storyName = 'Login';
 
-export const SignUpStory: Story = () => {
-  const signUpProps = {
-    isLoggedIn: false,
-    signUp: () => {
-      alert('Sign up');
+export const RegisterStory: Story = () => {
+  const registerProps = {
+    isLoading: false,
+    register: () => {
+      alert('Register');
     },
   };
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<SignUp {...signUpProps} />} />
+          <Route path="*" element={<Register {...registerProps} />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
 };
 
-SignUpStory.storyName = 'Sign up';
+RegisterStory.storyName = 'Register';

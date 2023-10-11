@@ -1,4 +1,4 @@
-import { SignIn } from './sign-in/sign-in';
-import { SignUp } from './sign-up/sign-up';
+import { LoginContainer } from './login/login.container';
+import { RegisterContainer } from './register/register.container';
 
-export { SignIn, SignUp };
+export { LoginContainer as Login, RegisterContainer as Register };

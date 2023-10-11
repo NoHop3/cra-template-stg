@@ -5,11 +5,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import BedtimeIcon from '@mui/icons-material/Bedtime';
 import { useTheme } from '@mui/material/styles';
-import { ThemeDialog } from '../theme-dialog/theme-dialog';
+import { ThemeDialogContainer } from '../theme-dialog/theme-dialog.container';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export const _BottomNavigation = () => {
+export const BottomNav = () => {
   const location = useLocation();
   const [openThemeDialog, setOpenThemeDialog] = React.useState(false);
   const [value, setValue] = React.useState(location.pathname.split('/')[1]);
@@ -61,7 +61,7 @@ export const _BottomNavigation = () => {
         value="theme"
         icon={<BedtimeIcon style={{ color: theme.palette.text.primary }} />}
       />
-      <ThemeDialog
+      <ThemeDialogContainer
         open={openThemeDialog}
         onClose={() => {
           setOpenThemeDialog(false);

@@ -1,6 +1,6 @@
-import { signUp, signIn } from './user-service';
+import { register, login } from './user-service';
 
 export const userService = {
-  signIn,
-  signUp,
+  login,
+  register,
 };

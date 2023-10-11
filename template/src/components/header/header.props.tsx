@@ -1,5 +1,7 @@
+import { AuthenticatedUser } from '../../shared';
+
 export interface HeaderProps {
-  isLoggedIn?: boolean;
+  user?: AuthenticatedUser;
 
   window?: () => Window;
   children?: React.ReactElement;

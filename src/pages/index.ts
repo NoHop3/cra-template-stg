@@ -1,5 +1,5 @@
-import { Home } from './home/home.container';
-import { _Error as Error } from './error/error';
-import { SignIn, SignUp } from './authentication';
+import { HomeContainer } from './home/home';
+import { Error } from './error/error';
+import { Login, Register } from './authentication';
 
-export { Home, Error, SignIn, SignUp };
+export { HomeContainer as Home, Error, Login, Register };

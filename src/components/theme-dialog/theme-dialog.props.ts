@@ -1,9 +1,11 @@
-import { Theme } from '../../shared/models/theme';
-import { DialogProps } from '../shared/dialog/dialog.props';
+import { Theme, DialogProps } from '../../shared';
 
 export interface ThemeDialogProps extends DialogProps {
   theme: Theme;
-  setPrimaryThemeMain: (color: string) => void;
-  setTextThemePrimary: (color: string) => void;
-  setBackgroundColor: (color: string) => void;
+
+  setTheme: () => void;
+  setThemeMain: (color: string) => void;
+  setThemeText: (color: string) => void;
+  setThemeBackground: (color: string) => void;
+  resetTheme: () => void;
 }

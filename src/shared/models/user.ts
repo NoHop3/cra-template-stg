@@ -1,13 +1,13 @@
-export interface RegisteredUser {
+export interface User {
   username: string;
-  password: string;
+  password?: string;
   firstName: string;
   lastName: string;
   email: string;
-  birthYear?: number;
 }
 
-export interface User extends RegisteredUser {
-  id: number;
-  apiKey: string;
+export interface AuthenticatedUser extends User {
+  id: string;
+  iat: number;
+  exp: number;
 }

@@ -1,7 +1,7 @@
 import type { StoryObj } from '@storybook/react';
 import { useState } from 'react';
 
-import { _ThemeDialog as ThemeDialog } from './theme-dialog.container';
+import { ThemeDialog } from './theme-dialog';
 import { ThemeDialogProps } from './theme-dialog.props';
 
 export default {
@@ -35,14 +35,35 @@ export const ThemeDialogStory: Story = () => {
       setOpen(false);
     },
     theme,
-    setBackgroundColor: (color: string) => {
+    setTheme: () => {
+      setOpen(false);
+    },
+    setThemeBackground: (color: string) => {
       setTheme({ ...theme, background: color });
     },
-    setPrimaryThemeMain: (color: string) => {
+    setThemeMain: (color: string) => {
       setTheme({ ...theme, primary: { ...theme.primary, main: color } });
     },
-    setTextThemePrimary: (color: string) => {
+    setThemeText: (color: string) => {
       setTheme({ ...theme, text: { ...theme.text, primary: color } });
+    },
+    resetTheme: () => {
+      setTheme({
+        mode: 'light' as 'light' | 'dark',
+        primary: {
+          main: '#880000',
+          dark: '#121212',
+          light: '#fffefc',
+          contrastText: '#ffcc00',
+        },
+        text: {
+          primary: '#000000',
+          secondary: '#ffffff',
+          disabled: '#888888',
+        },
+
+        background: '#fffefc',
+      });
     },
   };
 

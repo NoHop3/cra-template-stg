@@ -1,2 +1,3 @@
-export type { Snackbar } from './snackbar';
-export type { User } from './user';
+export type { TSnackbar } from './snackbar';
+export type { User, AuthenticatedUser } from './user';
+export type { Theme } from './theme';

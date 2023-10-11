@@ -1,13 +1,14 @@
-import { RegisteredUser } from '../../shared/models/user';
+import { User, AuthenticatedUser } from '../../shared';
 
 export interface AuthenticationProps {
-  isLoggedIn: boolean;
+  user?: AuthenticatedUser;
+  isLoading: boolean;
 }
 
-export interface SignInProps extends AuthenticationProps {
-  signIn: (username: string, password: string) => void;
+export interface LoginProps extends AuthenticationProps {
+  login: (username: string, password: string) => void;
 }
 
-export interface SignUpProps extends AuthenticationProps {
-  signUp: (user: RegisteredUser) => void;
+export interface RegisterProps extends AuthenticationProps {
+  register: (user: User) => void;
 }
