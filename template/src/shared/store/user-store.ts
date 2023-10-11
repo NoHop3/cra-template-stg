@@ -19,6 +19,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setPassword(state, action: PayloadAction<string>) {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       state.user!.password = action.payload;
     },
     setIsLoading(state, action: PayloadAction<boolean>) {

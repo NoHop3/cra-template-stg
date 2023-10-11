@@ -1,21 +1,43 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeProvider as ScThemeProvider } from 'styled-components';
-import { useCustomTheme } from './shared/utils/hooks/useCustomTheme';
-import { Home, Error, SignIn, SignUp } from './pages';
-import { Header, BottomNavigation, Snackbar } from './components';
-import { useGetDeviceType } from './shared/utils/hooks/useGetDeviceType';
-import { DeviceTypes } from './shared/utils/enums/deviceTypes';
-import { useAppDispatch, useAppSelector } from './shared/utils/typescript/redux-types';
-import { setNotificationVisibility } from './shared/store/notification-store';
+import {
+  useCustomTheme,
+  useGetDeviceType,
+  DeviceTypes,
+  useAppDispatch,
+  useAppSelector,
+  setNotificationVisibility,
+  Snackbar,
+  AuthenticatedUser,
+  setUser,
+} from './shared';
+import { Home, Error, Login, Register } from './pages';
+import { Header, BottomNavigation } from './components';
+import jwtDecode from 'jwt-decode';
+import { useEffect } from 'react';
 
 function App() {
   const notification = useAppSelector((state) => state.notifications.notification);
   const theme = useCustomTheme();
   const dispatch = useAppDispatch();
+
   // Set background color for the root element
   const root = document.getElementById('root') as HTMLElement;
   root.style.backgroundColor = theme.palette.background.default;
+
+  // Check if the user is authenticated and set the user in the store or remove token if expired
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = jwtDecode(token) as AuthenticatedUser;
+      if (decoded && decoded.exp >= Date.now() / 1000) {
+        // Dispatch setUser if a valid token exists
+        dispatch(setUser(decoded));
+      }
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <ScThemeProvider theme={theme}>
@@ -28,8 +50,8 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="*" element={<Error />} />
             </Routes>
             <Snackbar

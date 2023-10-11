@@ -17,11 +17,12 @@ export const ThemeDialog = (props: ThemeDialogProps) => {
   } = props.theme;
   const handleThemeSave = () => {
     props.setTheme();
+    props.onClose();
   };
 
   const handleThemeDialogClose = () => {
-    props.onClose();
     props.resetTheme();
+    props.onClose();
   };
 
   return (

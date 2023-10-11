@@ -20,7 +20,6 @@ export const ColorPicker = (props: ColorPickerProps) => {
       </StyledTypography>
       <Divider />
       <StyledCirclePicker
-        isInverted={!!color}
         color={color}
         onChange={(color) => {
           handleColorChange(color);

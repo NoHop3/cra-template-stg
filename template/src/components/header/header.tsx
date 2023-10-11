@@ -161,14 +161,14 @@ export const Header = (props: HeaderProps) => {
             </Search>
             <Divider />
             <IconButton
-              size="large"
+              size="medium"
               aria-label="theming button"
               edge="end"
               onClick={() => {
                 setOpenThemeDialog(true);
               }}
               color={'inherit'}
-              sx={{ ml: 2, pt: 2, display: { xs: 'none', lg: 'block' } }}>
+              sx={{ ml: 1, display: { xs: 'none', lg: 'block' } }}>
               <ThemeIcon />
             </IconButton>
 
