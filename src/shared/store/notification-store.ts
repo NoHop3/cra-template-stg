@@ -12,7 +12,8 @@ const initialState: NotificationStore = {
     {
       id: uuidv4(),
       title: 'Hi there!',
-      description: 'Hey 👋! Welcome to this create-react-app custom template! I hope you build great website on top of it! Look around and happy coding! 🕸️',
+      description:
+        'Hey 👋! Welcome to this create-react-app custom template! I hope you build great website on top of it! Look around and happy coding! 🕸️',
       priority: Priority.LOW,
       read: false,
       date: new Date(),

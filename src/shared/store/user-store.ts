@@ -21,7 +21,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setPassword(state, action: PayloadAction<string>) {
-      if(state.user) state.user.password = action.payload;
+      if (state.user) state.user.password = action.payload;
     },
     setIsLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;

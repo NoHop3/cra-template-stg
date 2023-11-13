@@ -56,8 +56,8 @@ export const CardStory: Story = () => {
         description="This card actually changes favourite state. Check it out by pressing on the favourite button. Pretty right??"
       />
       <Card
-        width='462px'
-        height='200px'
+        width="462px"
+        height="200px"
         key={'card4'}
         id={4}
         {...cardProps}
