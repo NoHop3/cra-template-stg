@@ -2,12 +2,14 @@ import * as React from 'react';
 import ThemeIcon from '@mui/icons-material/Brightness6';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
+import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import {
   AppBar,
-  Button,
   Divider,
   Drawer,
-  IconButton,
   InputBase,
   List,
   ListItem,
@@ -25,7 +27,16 @@ import { useNavigate } from 'react-router-dom';
 import { type NavItem } from '../../shared';
 import { ThemeDialogContainer } from '../theme-dialog/theme-dialog.container';
 import { HeaderProps } from './header.props';
-import { Logo, StyledLink } from './header.styles';
+import {
+  Logo,
+  StyledLinkText,
+  StyledIconButton,
+  StyledNumberOfNotifications,
+  StyledLinkButtonIcon,
+  StyledLinkButton,
+  StyledLinkButtonWrapper,
+} from './header.styles';
+import { NotificationDialog } from '../notifications-dialog';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -84,6 +95,7 @@ function HideOnScroll(props: HeaderProps) {
 
 export const Header = (props: HeaderProps) => {
   const [openThemeDialog, setOpenThemeDialog] = React.useState(false);
+  const [openNotificationDialog, setOpenNotificationDialog] = React.useState(false);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const theme = useTheme();
@@ -98,9 +110,8 @@ export const Header = (props: HeaderProps) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleDrawerClick = (path: string) => {
+  const handleLinkButtonClick = (path: string) => {
     if (path === '/logout') {
-      console.log('logout');
       props.onLogout?.();
       navigate('/');
     } else {
@@ -111,7 +122,7 @@ export const Header = (props: HeaderProps) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        SEP6
+        CRA STG
       </Typography>
       <Divider />
       <List>
@@ -120,7 +131,7 @@ export const Header = (props: HeaderProps) => {
             <ListItemButton
               sx={{ textAlign: 'center' }}
               onClick={() => {
-                handleDrawerClick(item.path);
+                handleLinkButtonClick(item.path);
               }}>
               <ListItemText primary={item.name}>{item.name}</ListItemText>
             </ListItemButton>
@@ -134,7 +145,6 @@ export const Header = (props: HeaderProps) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      {/* eslint-disable-next-line */}
       <HideOnScroll {...props}>
         <AppBar
           component="nav"
@@ -144,15 +154,32 @@ export const Header = (props: HeaderProps) => {
           }}>
           <Toolbar>
             <Box sx={{ flexGrow: 1 }}>
-              <Logo src="/images/stgdev__logo__dark.png" />
+              <Logo
+                src="/images/stgdev__logo__dark.png"
+                onClick={() => {
+                  navigate('/');
+                }}
+              />
             </Box>
-            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+            <StyledLinkButtonWrapper sx={{ display: { xs: 'none', lg: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item.name}>
-                  <StyledLink to={item.path}>{item.name}</StyledLink>
-                </Button>
+                <StyledLinkButton key={item.name}>
+                  <StyledLinkText>{item.name}</StyledLinkText>
+                  <StyledLinkButtonIcon
+                    onClick={() => {
+                      handleLinkButtonClick(item.path);
+                    }}>
+                    {item.name === 'Home' ? (
+                      <HomeIcon sx={{ paddingY: theme.spacing(0.5) }} />
+                    ) : item.name === 'Logout' ? (
+                      <LogoutIcon sx={{ paddingY: theme.spacing(0.5) }} />
+                    ) : (
+                      <LoginIcon sx={{ paddingY: theme.spacing(0.5) }} />
+                    )}
+                  </StyledLinkButtonIcon>
+                </StyledLinkButton>
               ))}
-            </Box>
+            </StyledLinkButtonWrapper>
             <Search sx={{ width: 250 }}>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -160,26 +187,39 @@ export const Header = (props: HeaderProps) => {
               <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
             </Search>
             <Divider />
-            <IconButton
-              size="medium"
+            <StyledIconButton
+              size="large"
+              aria-label="notification button"
+              edge="end"
+              onClick={() => {
+                setOpenNotificationDialog(true);
+              }}
+              color={'inherit'}
+              sx={{ display: { xs: 'none', lg: 'block' } }}>
+              <CircleNotificationsIcon />
+              <StyledNumberOfNotifications>
+                {props.notifications.filter((n) => !n.read).length}
+              </StyledNumberOfNotifications>
+            </StyledIconButton>
+            <StyledIconButton
+              size="large"
               aria-label="theming button"
               edge="end"
               onClick={() => {
                 setOpenThemeDialog(true);
               }}
               color={'inherit'}
-              sx={{ ml: 1, display: { xs: 'none', lg: 'block' } }}>
+              sx={{ display: { xs: 'none', lg: 'block' } }}>
               <ThemeIcon />
-            </IconButton>
-
-            <IconButton
+            </StyledIconButton>
+            <StyledIconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
               onClick={handleDrawerToggle}
-              sx={{ ml: 2, display: { lg: 'none' } }}>
+              sx={{ display: { lg: 'none' } }}>
               <MenuIcon />
-            </IconButton>
+            </StyledIconButton>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -188,6 +228,15 @@ export const Header = (props: HeaderProps) => {
         onClose={() => {
           setOpenThemeDialog(false);
         }}
+      />
+      <NotificationDialog
+        open={openNotificationDialog}
+        onClose={() => {
+          setOpenNotificationDialog(false);
+        }}
+        notifications={props.notifications}
+        onDelete={props.onRemoveANotification}
+        onMarkAsRead={props.onMarkANotificationAsRead}
       />
       <Box component="nav">
         <Drawer

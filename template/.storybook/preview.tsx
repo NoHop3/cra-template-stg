@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { ThemeProvider as ScThemeProvider } from 'styled-components';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material';
-import { lightTheme, darkTheme } from '../src/shared/utils/theme/themes';
+import { lightTheme, darkTheme } from '../src/shared';
 
 export const globalTypes = {
   theme: {
@@ -30,6 +30,7 @@ export const withProviders = (Story, context) => {
 
   // only recompute the theme if the themeKey changes
   const theme = useMemo(() => THEMES[themeKey] || THEMES['light'], [themeKey]);
+
   return (
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>

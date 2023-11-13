@@ -19,8 +19,8 @@ export const useGetDeviceType = (): DeviceTypes => {
     windowSize <= screenSizes.isMobile
       ? setDeviceType(DeviceTypes.MOBILE)
       : windowSize >= screenSizes.isDesktop
-      ? setDeviceType(DeviceTypes.DESKTOP)
-      : setDeviceType(DeviceTypes.TABLET);
+        ? setDeviceType(DeviceTypes.DESKTOP)
+        : setDeviceType(DeviceTypes.TABLET);
 
     window.addEventListener('resize', handleWindowResize);
 

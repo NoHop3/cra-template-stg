@@ -18,12 +18,12 @@ export const ThemeDialogStory: Story = () => {
       main: '#880000',
       dark: '#121212',
       light: '#fffefc',
-      contrastText: '#ffcc00',
     },
     text: {
       primary: '#000000',
       secondary: '#ffffff',
       disabled: '#888888',
+      contrastText: '#ffcc00',
     },
 
     background: '#fffefc',
@@ -54,12 +54,12 @@ export const ThemeDialogStory: Story = () => {
           main: '#880000',
           dark: '#121212',
           light: '#fffefc',
-          contrastText: '#ffcc00',
         },
         text: {
           primary: '#000000',
           secondary: '#ffffff',
           disabled: '#888888',
+          contrastText: '#ffcc00',
         },
 
         background: '#fffefc',

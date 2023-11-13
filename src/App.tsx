@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import jwtDecode from 'jwt-decode';
+import { connect } from 'react-redux';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import { ThemeProvider as ScThemeProvider } from 'styled-components';
@@ -5,38 +8,38 @@ import {
   useCustomTheme,
   useGetDeviceType,
   DeviceTypes,
-  useAppDispatch,
-  useAppSelector,
-  setNotificationVisibility,
+  setSnackbarVisibility,
   Snackbar,
   AuthenticatedUser,
   setUser,
+  AppDispatch,
+  ApplicationState,
+  TSnackbar,
+  setSnackbar,
 } from './shared';
 import { Home, Error, Login, Register } from './pages';
 import { Header, BottomNavigation } from './components';
-import jwtDecode from 'jwt-decode';
-import { useEffect } from 'react';
 
-function App() {
-  const notification = useAppSelector((state) => state.notifications.notification);
-  const theme = useCustomTheme();
-  const dispatch = useAppDispatch();
+interface IAppProps {
+  snackbar: TSnackbar;
+
+  onInit: () => void;
+  setSnackbarVisibility: (visibility: boolean) => void;
+}
+
+const App = (props: IAppProps) => {
+  const token = localStorage.getItem('token');
 
   // Set background color for the root element
   const root = document.getElementById('root') as HTMLElement;
+  const theme = useCustomTheme();
   root.style.backgroundColor = theme.palette.background.default;
 
-  // Check if the user is authenticated and set the user in the store or remove token if expired
+  const { snackbar, setSnackbarVisibility, onInit } = props;
+
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decoded = jwtDecode(token) as AuthenticatedUser;
-      if (decoded && decoded.exp >= Date.now() / 1000) {
-        // Dispatch setUser if a valid token exists
-        dispatch(setUser(decoded));
-      }
-    }
-  }, []);
+    onInit();
+  }, [token]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -55,10 +58,12 @@ function App() {
               <Route path="*" element={<Error />} />
             </Routes>
             <Snackbar
-              open={notification.open}
-              message={notification.message}
-              type={notification.type}
-              onClose={() => dispatch(setNotificationVisibility(false))}
+              open={snackbar.open}
+              message={snackbar.message}
+              type={snackbar.type}
+              onClose={() => {
+                setSnackbarVisibility(false);
+              }}
               autoHideDuration={4000}
             />
             {useGetDeviceType() !== DeviceTypes.DESKTOP && <BottomNavigation />}
@@ -67,6 +72,55 @@ function App() {
       </ScThemeProvider>
     </ThemeProvider>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state: ApplicationState) => ({
+  snackbar: state.notifications.snackbar,
+  user: state.user.user,
+  token: state.user.token,
+});
+
+const mapDispatchToProps = (dispatch: AppDispatch) => {
+  return {
+    onInit: () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const decoded = jwtDecode(token) as AuthenticatedUser;
+        if (decoded && decoded.exp >= Date.now() / 1000) {
+          // Dispatch setUser if a valid token exists
+          dispatch(setUser(decoded));
+          dispatch(
+            setSnackbar({
+              open: true,
+              message: `Welcome back! ${decoded.username} 👋`,
+              type: 'success',
+            }),
+          );
+        } else {
+          // Remove invalid token
+          localStorage.removeItem('token');
+          dispatch(setUser(undefined));
+          dispatch(
+            setSnackbar({
+              open: true,
+              message: 'Your session has expired. Please login again. 😅',
+              type: 'error',
+            }),
+          );
+        }
+      } else {
+        dispatch(setUser(undefined));
+        dispatch(
+          setSnackbar({
+            open: true,
+            message: 'Hey 👋! Welcome to this create-react-app custom template! 😎',
+            type: 'info',
+          }),
+        );
+      }
+    },
+    setSnackbarVisibility: (visibility: boolean) => dispatch(setSnackbarVisibility(visibility)),
+  };
+};
+
+export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

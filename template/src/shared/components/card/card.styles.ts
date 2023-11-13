@@ -163,9 +163,11 @@ export const AddToFavoritesButton = styled.button<{ disabled?: boolean }>`
   }
 `;
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div<{ width: string; height: string; padding?: string }>`
   display: flex;
-  padding: 24px 0;
+  max-width: ${({ width }) => width};
+  max-height: ${({ height }) => height};
+  padding: ${({ padding }) => padding ?? '24px 0'};
   border-top: 1px solid ${({ theme }) => theme.palette.divider};
   cursor: pointer;
 

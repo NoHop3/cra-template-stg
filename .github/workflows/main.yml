@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [releases/**, main]
+    branches: [releases/**]
     tags:
       - '*'
     paths:

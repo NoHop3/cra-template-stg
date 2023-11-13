@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import styled from 'styled-components';
 
-import { hexWithAlpha, mediaUpTo } from '../../../shared/utils/helpers';
+import { hexWithAlpha, mediaUpTo } from '../../utils/helpers';
 
 export const ItemImageWrapper = styled.div`
   position: relative;
@@ -163,9 +163,11 @@ export const AddToFavoritesButton = styled.button<{ disabled?: boolean }>`
   }
 `;
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div<{ width: string; height: string; padding?: string }>`
   display: flex;
-  padding: 24px 0;
+  max-width: ${({ width }) => width};
+  max-height: ${({ height }) => height};
+  padding: ${({ padding }) => padding ?? '24px 0'};
   border-top: 1px solid ${({ theme }) => theme.palette.divider};
   cursor: pointer;
 

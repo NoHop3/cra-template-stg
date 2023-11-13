@@ -10,7 +10,7 @@ import {
 import { DialogProps } from './dialog.props';
 
 export const Dialog = (props: DialogProps) => {
-  const { open, onClose, title, children, options, onOptionClick } = props;
+  const { open, onClose, title, children, options, onOptionClick, width, height } = props;
   const handleOptionClick = (option: string) => {
     if (onOptionClick) {
       onOptionClick(option);
@@ -19,7 +19,7 @@ export const Dialog = (props: DialogProps) => {
 
   return (
     <StyledDialogWrapper open={open}>
-      <StyledDialog>
+      <StyledDialog width={width} height={height}>
         {title && <DialogTitle>{title}</DialogTitle>}
         <DialogBody>{children}</DialogBody>
         {options && (

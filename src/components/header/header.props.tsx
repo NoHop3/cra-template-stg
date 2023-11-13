@@ -1,10 +1,14 @@
-import { AuthenticatedUser } from '../../shared';
+import { AuthenticatedUser, TNotification } from '../../shared';
 
 export interface HeaderProps {
-  user?: AuthenticatedUser;
+  notifications: TNotification[];
 
+  user?: AuthenticatedUser;
   window?: () => Window;
   children?: React.ReactElement;
+
+  onMarkANotificationAsRead: (id: string) => void;
+  onRemoveANotification: (id: string) => void;
 
   onLogout?: () => void;
 }

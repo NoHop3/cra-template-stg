@@ -10,11 +10,11 @@ export interface PrimaryTheme {
   main: string;
   dark: string;
   light: string;
-  contrastText: string;
 }
 
 export interface TextTheme {
   primary: string;
   secondary: string;
   disabled: string;
+  contrastText: string;
 }
