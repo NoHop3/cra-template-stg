@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/NoHop3/cra-template-stg/compare/v4.2.0...v4.3.0) (2023-11-13)
+
+
+### Features
+
+* a lot has changed ([6b68569](https://github.com/NoHop3/cra-template-stg/commit/6b68569cdc74a2491ae32c5a19a7167e4777bd0b))
+
 ## [4.2.0](https://github.com/NoHop3/cra-template-stg/compare/v4.1.1...v4.2.0) (2023-10-11)
 
 ### Refactors
