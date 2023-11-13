@@ -1,6 +1,16 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { AuthenticatedUser, User, setIsLoading, setNotification, setUser, userEndpoints } from '../shared';
+import {
+  AuthenticatedUser,
+  User,
+  setIsLoading,
+  setSnackbar,
+  setUser,
+  userEndpoints,
+  addANotification,
+} from '../shared';
+import { Priority } from '../shared/models/notification';
+import { v4 as uuidv4 } from 'uuid';
 
 // #region login
 export const login = (username: string, password: string) => (dispatch: any) => {
@@ -19,11 +29,21 @@ export const login = (username: string, password: string) => (dispatch: any) => 
       },
     )
     .then((res: any) => {
-      console.log(res.data);
       localStorage.setItem('token', res.data.token as string);
-      dispatch(setUser(jwtDecode(res.data.token as string) as AuthenticatedUser));
+      const user = jwtDecode(res.data.token as string) as AuthenticatedUser;
+      dispatch(setUser(user));
       dispatch(
-        setNotification({
+        addANotification({
+          id: uuidv4(),
+          title: 'Login successful',
+          description: `You have successfully logged in as ${user.username}!`,
+          read: false,
+          priority: Priority.LOW,
+          date: new Date(),
+        }),
+      );
+      dispatch(
+        setSnackbar({
           open: true,
           type: 'success',
           message: `User was signed in successfully!`,
@@ -32,10 +52,20 @@ export const login = (username: string, password: string) => (dispatch: any) => 
     })
     .catch((err: any) => {
       dispatch(
-        setNotification({
+        setSnackbar({
           open: true,
           type: 'error',
           message: `User was not signed in!`,
+        }),
+      );
+      dispatch(
+        addANotification({
+          id: uuidv4(),
+          title: 'Login failed',
+          description: `You have failed to login as ${username}!`,
+          read: false,
+          priority: Priority.HIGH,
+          date: new Date(),
         }),
       );
       console.error(err);
@@ -50,7 +80,6 @@ export const login = (username: string, password: string) => (dispatch: any) => 
 // #region register
 export const register = (user: User) => (dispatch: any) => {
   dispatch(setIsLoading(true));
-  console.log(user);
   axios
     .post(userEndpoints.register(), JSON.stringify(user), {
       headers: {
@@ -59,9 +88,20 @@ export const register = (user: User) => (dispatch: any) => {
     })
     .then((res: any) => {
       localStorage.setItem('token', res.data.token as string);
-      dispatch(setUser(jwtDecode(res.data.token as string) as AuthenticatedUser));
+      const user = jwtDecode(res.data.token as string) as AuthenticatedUser;
+      dispatch(setUser(user));
       dispatch(
-        setNotification({
+        addANotification({
+          id: uuidv4(),
+          title: 'Registration successful',
+          description: `You have successfully registered as ${user.username}!`,
+          read: false,
+          priority: Priority.LOW,
+          date: new Date(),
+        }),
+      );
+      dispatch(
+        setSnackbar({
           open: true,
           type: 'success',
           message: `User was signed up successfully!`,
@@ -70,7 +110,17 @@ export const register = (user: User) => (dispatch: any) => {
     })
     .catch((err: any) => {
       dispatch(
-        setNotification({
+        addANotification({
+          id: uuidv4(),
+          title: 'Registration failed',
+          description: `You have failed to register as ${user.username}!`,
+          read: false,
+          priority: Priority.HIGH,
+          date: new Date(),
+        }),
+      );
+      dispatch(
+        setSnackbar({
           open: true,
           type: 'error',
           message: `User was not signed up!`,

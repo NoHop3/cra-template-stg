@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { StyledEngineProvider } from '@mui/material';
 
-import App from './App';
+import { AppContainer } from './App';
 import { Provider } from 'react-redux';
 import { configureAppStore } from './shared/store/configure-store';
 import './index.css';
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <Provider store={configureAppStore()}>
       <StyledEngineProvider injectFirst>
-        <App />
+        <AppContainer />
       </StyledEngineProvider>
     </Provider>
   </React.StrictMode>,

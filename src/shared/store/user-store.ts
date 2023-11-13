@@ -3,11 +3,13 @@ import { AuthenticatedUser } from '../models/user';
 
 export interface UserStore {
   user?: AuthenticatedUser;
+  token?: string;
   isLoading: boolean;
 }
 
 const initialState: UserStore = {
   user: undefined,
+  token: localStorage.getItem('token') ?? undefined,
   isLoading: false,
 };
 
@@ -15,19 +17,18 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser(state, action: PayloadAction<AuthenticatedUser>) {
+    setUser(state, action: PayloadAction<AuthenticatedUser | undefined>) {
       state.user = action.payload;
     },
     setPassword(state, action: PayloadAction<string>) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      state.user!.password = action.payload;
+      if(state.user) state.user.password = action.payload;
     },
     setIsLoading(state, action: PayloadAction<boolean>) {
       state.isLoading = action.payload;
     },
     reset(state) {
       localStorage.removeItem('token');
-      state = initialState;
+      Object.assign(state, initialState);
     },
   },
 });

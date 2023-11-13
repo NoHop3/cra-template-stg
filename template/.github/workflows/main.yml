@@ -2,9 +2,21 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [releases/**]
+    tags:
+      - '*'
+    paths:
+      - '.github/workflows/**'
+      - 'amplify/backend/**'
+      - 'src/**'
+      - 'package.json'
   pull_request:
     branches: [main]
+    paths:
+      - '.github/workflows/**'
+      - 'amplify/backend/**'
+      - 'src/**'
+      - 'package.json'
 
 env:
   NODE_VERSION: 18.x

@@ -59,7 +59,6 @@ export const Login = (props: LoginProps) => {
   }, [redirectIfLoggedIn]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log('handleSubmit');
     event.preventDefault();
     if (validateForm()) {
       props.login(formState.username, formState.password);

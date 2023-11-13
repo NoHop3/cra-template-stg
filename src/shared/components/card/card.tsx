@@ -18,8 +18,9 @@ import {
 } from './card.styles';
 
 export const Card = React.memo((props: CardProps) => {
+  const { width, height, padding } = props;
   return (
-    <CardWrapper>
+    <CardWrapper key={props.id} width={width} height={height} padding={padding}>
       <ItemImageWrapper>
         <ImageContainer
           data-search-result-image

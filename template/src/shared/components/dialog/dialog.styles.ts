@@ -2,15 +2,16 @@
 import styled from 'styled-components';
 import { hexWithAlpha, mediaUpTo } from '../../../shared';
 
-export const StyledDialog = styled.div`
+export const StyledDialog = styled.div<{ width?: string; height?: string }>`
+  max-width: ${({ width }) => width ?? '900px'};
+  max-height: ${({ height }) => height ?? 'calc(100vh - 100px)'};
   font-family: ${({ theme }) => theme.typography.fontFamily};
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 900px;
-  max-height: calc(100vh - 100px);
+  height: 100%;
   background: ${({ theme }) => theme.palette.background.default};
   border-radius: 4px;
   box-shadow:
@@ -64,10 +65,10 @@ export const StyledDialogWrapper = styled.div<{ open: boolean }>`
 `;
 
 export const DialogTitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1rem;
   text-align: center;
   margin: 0;
-  padding: 8px;
+  padding: ${({ theme }) => theme.spacing(2)};
   border-bottom: 1px solid ${({ theme }) => theme.palette.divider};
 `;
 
@@ -75,7 +76,6 @@ export const DialogBody = styled.div`
   text-align: center;
   padding: ${({ theme }) => theme.spacing(2)};
   height: 100%;
-  min-height: 200px;
   overflow-x: auto;
 `;
 
@@ -83,13 +83,16 @@ export const DialogOptionItem = styled.div<{
   isSelected: boolean;
   isTopLevel?: boolean;
 }>`
+  width: 100%;
   display: flex;
-  padding: 9px 16px;
+  align-items: center;
+  justify-content: center;
+  padding: ${({ theme }) => theme.spacing(2)};
   overflow: hidden;
   background-color: ${({ theme, isSelected }) => (isSelected ? hexWithAlpha(theme.palette.primary.main, 10) : 'none')};
   border-radius: 5px;
   text-overflow: ellipsis;
-  font-size: 20px;
+  font-size: 0.875rem;
   font-weight: ${({ isSelected }) => (isSelected ? '500' : '400')};
   cursor: pointer;
   color: ${({ theme }) => theme.palette.text.primary};
@@ -102,10 +105,11 @@ export const DialogOptionItem = styled.div<{
 `;
 
 export const DialogFooter = styled.div`
-  width: calc(100% - ${({ theme }) => theme.spacing(4)});
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: ${({ theme }) => theme.spacing(2)};
+  justify-content: center;
   border-top: 1px solid ${({ theme }) => theme.palette.divider};
+  & > :not(:last-child) {
+    border-right: 1px solid ${({ theme }) => theme.palette.divider};
 `;

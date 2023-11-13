@@ -1,5 +1,6 @@
-export const mdBreakpoint = 960;
-export const smBreakpoint = 600;
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+export const mdBreakpoint: number = 1024;
+export const smBreakpoint: number = 768;
 
 export const mediaUpTo = (key: 'desktop' | 'tablet') => {
   switch (key) {
